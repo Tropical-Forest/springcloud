@@ -3,9 +3,9 @@ package com.lpy.springcloud.controller;
 import com.lpy.springcloud.entities.CommonResult;
 import com.lpy.springcloud.entities.Payment;
 import com.lpy.springcloud.service.PaymentService;
-import com.netflix.discovery.DiscoveryClient;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -50,4 +50,11 @@ public class PaymentController {
             return new CommonResult(444,"没有对应记录,查询ID:"+id+" serverPort: "+ serverPort,null);
         }
     }
+
+    @GetMapping(value = "/payment/lb")
+    public String getPaymentLB()
+    {
+        return serverPort;
+    }
+
 }
