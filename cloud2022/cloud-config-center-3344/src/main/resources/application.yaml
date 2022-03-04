@@ -1,0 +1,25 @@
+server:
+  port: 3344
+
+
+spring:
+  application:
+    name: cloud-config-center
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://@github.com/Tropical-Forest/springcloud-config.git
+          username: Tropical-Forest
+          password: ZJt6c3f3czDKjug
+          #####搜索目录
+          search-paths:
+            - springcloud-config
+      label: main
+
+
+#服务注册到eureka地址
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka
